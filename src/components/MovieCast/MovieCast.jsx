@@ -26,7 +26,6 @@ export default function MovieCast() {
         }
         getFilmById()
     }, [movieId])
-    
     return (
         <div>
             {loading && <Loader />}
@@ -34,7 +33,9 @@ export default function MovieCast() {
            {cast? <ul>
                 {cast.map((actor) => {
                     return <li key={actor.id}>
-                        { actor.name}
+
+                        <img src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`} alt={actor.name} />
+                       <p>{ actor.name}</p> 
                     </li>
                 })}
             </ul>: <p>No actors</p> }

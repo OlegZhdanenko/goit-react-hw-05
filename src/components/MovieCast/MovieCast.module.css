@@ -1,0 +1,13 @@
+.poster{
+width: 100%;
+}
+
+.list{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+.item{
+    padding: 8px;
+    width:250px;
+}

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getMovieReview} from "../../MoviApi";
 import Loader from "../../components/loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-
+import css from "../MovieReviews/MovieReviews.module.css"
 export default function MovieReviews() {
     const { movieId } = useParams();
     const [reviews, setReviews] = useState([])
@@ -31,12 +31,12 @@ export default function MovieReviews() {
         <div>
                 {loading && <Loader />}
                 {error && <ErrorMessage />}
-                {reviews.length > 0 && <ul>
+                {reviews.length > 0 && <ul className={css.list}>
                     {reviews.map((review) => {
                         return <li key={review.id}>
 
                             <h2>Author: {review.author}</h2>
-                            <p>Review: {review.content}</p>
+                            <p><b>Review:</b> {review.content}</p>
                         </li>
                     })}
                 </ul>}

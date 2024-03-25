@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getMovieCast} from "../../MoviApi";
 import Loader from "../../components/loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import css from "../MovieCast/MovieCast.module.css"
 
 export default function MovieCast() {
     const { movieId } = useParams();
@@ -30,15 +31,15 @@ export default function MovieCast() {
         <div>
             {loading && <Loader />}
             {error && <ErrorMessage />}
-           {cast? <ul>
+           {cast&& <ul className={css.list}>
                 {cast.map((actor) => {
-                    return <li key={actor.id}>
+                    return <li key={actor.id} className={css.item}>
 
-                        <img src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`} alt={actor.name} />
-                       <p>{ actor.name}</p> 
+                        <img src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`} alt={actor.name} className={css.poster}/>
+                       <p className={css.name}>{ actor.name}</p> 
                     </li>
                 })}
-            </ul>: <p>No actors</p> }
+            </ul>}
         </div>
     )
 }

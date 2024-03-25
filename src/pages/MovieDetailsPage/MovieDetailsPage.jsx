@@ -3,6 +3,9 @@ import {  Link, NavLink, Outlet,  useLocation,  useParams } from "react-router-d
 import { getMoviebyId } from "../../MoviApi";
 import Loader from "../../components/loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import css from "../MovieDetailsPage/MovieDetailsPage.module.css"
+import { clsx } from 'clsx'
+
 
 export default function MovieDetailsPage() {
     const { movieId } = useParams();
@@ -31,21 +34,28 @@ export default function MovieDetailsPage() {
         getFilmById()
     }, [movieId])
 
+
+    const makeLink=({ isActive })=>{return clsx(css.item,isActive && css.isActive)}
+
     return (
         <div>
             {loading && <Loader />}
             {error && <ErrorMessage />}
 
-            {film && <div>
-                <img src={`https://image.tmdb.org/t/p/w500/${film.backdrop_path}`} alt={film.original_title} />
-                <Link to={goBackLink.current} >Go back</Link>
+            {film && <div >
+                <Link className={css.link} to={goBackLink.current} >Go back</Link>
+                <div className={css.page}>
+                <img className={css.poster} src={`https://image.tmdb.org/t/p/w500/${film.backdrop_path}`} alt={film.original_title} />
+                <div>
                 <h1>{film.original_title}</h1>
-                <p> Budget :{film.budget }$</p>
-                <p> Overview :{film.overview}</p>
-                <p> Genre :{film.genres.map((genre) => genre.name).join(", ")}</p>
-                <ul>
-                    <li><NavLink to="cast">Cast</NavLink></li>
-                    <li><NavLink to="reviews">Reviews</NavLink></li>
+                <p> <b>Budget :</b> {film.budget }$</p>
+                <p> <b>Overview :</b> {film.overview}</p>
+                <p> <b>Genre :</b> {film.genres.map((genre) => genre.name).join(", ")}</p>
+                </div>
+                </div>
+                <ul className={css.link}>
+                    <li><NavLink className={makeLink} to="cast">Cast</NavLink></li>
+                    <li><NavLink className={makeLink} to="reviews">Reviews</NavLink></li>
                 </ul>
                 <Suspense fallback={null}><Outlet/></Suspense>
                 

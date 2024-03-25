@@ -4,7 +4,7 @@ import { getSearchFilm } from "../../MoviApi";
 import Loader from "../../components/loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import MovieList from "../../components/MovieList/MovieList";
-
+import css from "../MoviesPage/MoviesPage.module.css"
 
 export default function MoviesPage() {
     const [loading, setLoading] = useState(false);
@@ -39,9 +39,9 @@ export default function MoviesPage() {
 
     return (
         <div>
-        <form onSubmit={handleSubmit}>
-            <input type="text" name="movie"/>
-            <button type="submit">Search</button>
+        <form onSubmit={handleSubmit} className={css.list}>
+            <input className={css.input} type="text" name="movie"/>
+            <button className={css.btn} type="submit">Search</button>
         </form>
         <div>
             {loading && <Loader />}

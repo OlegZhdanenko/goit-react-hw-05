@@ -1,0 +1,34 @@
+.page{
+    display: flex;
+    
+}
+.link{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-block-start:0;
+    padding-inline-start: 0%;
+}
+.link {
+    color: white;
+}
+.link:hover{
+    color: rgb(252, 101, 0);
+}
+.poster{
+    object-fit: cover;
+    
+}
+.item{
+    color: white;
+}
+.isActive{
+    color: rgb(252, 101, 0);
+}
+.item:hover{
+    color: rgb(252, 101, 0);
+}
+.item:focus {
+    color: rgb(252, 101, 0);
+}

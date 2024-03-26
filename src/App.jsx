@@ -17,20 +17,20 @@ function App() {
   return (
 
     <div>
-      <Navigation/>
-<Suspense fallback={<Loader/>}>
-      <Routes>
-        <Route path="/" element={<HomePage/>} />
-        <Route path="/movies" element={<MoviesPage/>} />
-        <Route path="/:movieId" element={<MovieDetailsPage />} >
-          <Route path='cast' element={<MovieCast/>}/>
-          <Route path='reviews' element={<MovieReviews/>}/>
+      <Navigation />
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/movies" element={<MoviesPage />} />
+          <Route path="/movies/:movieId" element={<MovieDetailsPage />} >
+            <Route path='cast' element={<MovieCast />} />
+            <Route path='reviews' element={<MovieReviews />} />
           </Route >
-        <Route path='*' element={<NotFound/>} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
-        </Suspense>
+      </Suspense>
     </div>
-  )
+  );
 }
 
 export default App

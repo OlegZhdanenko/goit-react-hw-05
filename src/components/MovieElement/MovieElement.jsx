@@ -3,7 +3,7 @@ import css from "../MovieElement/MovieElement.module.css"
 export default function MovieElement({ movie, state }) {
     return (
         <li className={css.card}>
-            <NavLink to={`/${movie.id}`}  state={state} >
+            <NavLink to={`/movies/${movie.id}`}  state={state} >
                 <div>
                     <img
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

@@ -1,10 +1,10 @@
-import { Suspense, useEffect,useRef,useState } from "react"
+import { Suspense, useEffect, useRef, useState } from "react";
 import {  Link, NavLink, Outlet,  useLocation,  useParams } from "react-router-dom";
 import { getMoviebyId } from "../../MoviApi";
 import Loader from "../../components/loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import css from "../MovieDetailsPage/MovieDetailsPage.module.css"
-import { clsx } from 'clsx'
+import css from "../MovieDetailsPage/MovieDetailsPage.module.css";
+import { clsx } from 'clsx';
 
 
 export default function MovieDetailsPage() {
@@ -14,7 +14,7 @@ export default function MovieDetailsPage() {
     const [error, setError] = useState(false);
     
     const location = useLocation();
-    const goBackLink = useRef(location.state ?? "/");
+    const goBackLink = useRef(location.state ?? "/movies");
     
 
     useEffect(() => {

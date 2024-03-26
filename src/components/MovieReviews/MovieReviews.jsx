@@ -26,7 +26,7 @@ export default function MovieReviews() {
         }
         getFilmReviews()
     }, [movieId])
-    console.log(reviews);
+   
         return (
         <div>
                 {loading && <Loader />}

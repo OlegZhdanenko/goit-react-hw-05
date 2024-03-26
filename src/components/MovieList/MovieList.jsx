@@ -6,11 +6,13 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 export default function MovieList({ movies }) {
     const location = useLocation()
-    return (
+    if (!movies) {
+        return  <ErrorMessage />
+    }
+    return (  
         <ul className={css.list}>
             {movies.map((movie) => {
-                
-                return movies.length > 0 ? <MovieElement key={movie.id} movie={movie} state={location} /> : <ErrorMessage />
+                return  <MovieElement key={movie.id} movie={movie} state={location} /> 
             })
             }
         </ul>

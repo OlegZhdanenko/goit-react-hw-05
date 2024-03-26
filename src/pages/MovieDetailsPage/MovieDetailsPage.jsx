@@ -35,7 +35,7 @@ export default function MovieDetailsPage() {
     }, [movieId])
 
 
-    const makeLink=({ isActive })=>{return clsx(css.item,isActive && css.isActive)}
+    const makeLinkColor=({ isActive })=> clsx(css.item,isActive && css.isActive)
 
     return (
         <div>
@@ -54,10 +54,10 @@ export default function MovieDetailsPage() {
                 </div>
                 </div>
                 <ul className={css.link}>
-                    <li><NavLink className={makeLink} to="cast">Cast</NavLink></li>
-                    <li><NavLink className={makeLink} to="reviews">Reviews</NavLink></li>
+                    <li><NavLink className={makeLinkColor} to="cast">Cast</NavLink></li>
+                    <li><NavLink className={makeLinkColor} to="reviews">Reviews</NavLink></li>
                 </ul>
-                <Suspense fallback={null}><Outlet/></Suspense>
+                <Suspense fallback={<Loader />}><Outlet/></Suspense>
                 
             </div>}
         </div>

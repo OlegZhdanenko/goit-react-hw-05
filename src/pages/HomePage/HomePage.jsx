@@ -14,7 +14,10 @@ export default function HomePage() {
     const [tranding, setTranding] = useState("day")
 
    
-    const trandingChoise=(newTranding)=> {
+    const trendingChoice = (newTranding) => {
+        if (newTranding===tranding) {
+            return
+        }
     setTranding(newTranding);
     }
 
@@ -41,8 +44,8 @@ export default function HomePage() {
 
     return (
         <div>
-            <TrandingBtn  onTranding={trandingChoise}/>
-            <h1>Tranding today</h1>
+            <TrandingBtn  onTranding={trendingChoice}/>
+            {<h1>Tranding of { tranding}</h1>}
             {loading && <Loader />}
             {error && <ErrorMessage/>}
             <MovieList movies={movie} />

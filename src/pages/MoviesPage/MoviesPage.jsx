@@ -29,7 +29,8 @@ export default function MoviesPage() {
         }
         }
         searchFilm()
-},[filmSearch])
+    }, [filmSearch])
+    
     const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.currentTarget;
